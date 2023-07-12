@@ -9,7 +9,7 @@
 
 El presente trabajo consiste en implementar una estructura de datos de tipo grafo y los diferentes algoritmos de búsqueda. Como caso aplicativo, debe implementarse un JSON file parser que permita construir el grafo a partir de un dataset en formato JSON.
 
-La estructura del grafo debe soportar los métodos y algoritmos descritos a continuacion:  
+La estructura del grafo debe soportar los métodos y algoritmos descritos a continuacion:
 
 
 ## Graph(Grafo)
@@ -41,6 +41,30 @@ display(): // Muestra por consola los vértices y aristas del grafo.
 displayVertex(string id): // Muestra por consola la información de un vértice específico.
 findById(string id): // Devuelve los datos asociados a un vértice específico mediante su ID.
 ```
+
+### Función isConnected()
+```c++
+bool isConnected() {
+  if (vertexes.empty()) {
+    return false;
+  }
+
+  string startVertex = vertexes.begin()->first;
+
+  std::unordered_map<string, bool> visited;
+  DFS(startVertex, visited);
+
+  for (const auto& vertex : vertexes) {
+    if (!visited[vertex.first]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+```
+
+La función `isConnected()` verifica la conectividad de todos los vértices de un grafo. Primero, comprueba si la lista de vértices está vacía; si es así, devuelve `false`. Si hay vértices, selecciona uno de ellos como punto de partida y realiza un recorrido del grafo utilizando una búsqueda en profundidad (DFS). Durante el recorrido, se marca cada vértice visitado en un diccionario llamado `visited`. Después del recorrido, se verifica si todos los vértices están marcados como visitados en el diccionario. Si hay algún vértice no visitado, se devuelve `false`; de lo contrario, se devuelve `true`, lo que indica que todos los vértices están conectados entre sí.
 
 ### Algoritmos:
 
@@ -206,5 +230,6 @@ URL: https://replit.com/@EDUTEC2023-2/Grafos
 ## Nota
 
 La información proporcionada en formato JSON estaba corrupta y requirió que asignáramos las coordenadas de longitud y latitud correctas, además de eliminar manualmente los identificadores de los aeropuertos que ya no están en funcionamiento.
+
 
 Responsables: Raul Bustamante, Bruno Miranda, Jorge Fernandez
