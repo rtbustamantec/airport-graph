@@ -82,7 +82,6 @@ public:
     if (path.empty()) {
       cout << "No existe un camino desde el origen hasta el destino." << endl;
     } else {
-      cout << "Camino más corto: ";
       for (const auto& vertex : path) {
         City* city = ciudadHashtable[vertex];
         cout << city->name << " - " << city->city << " (ID: " << vertex << ") -> ";

@@ -158,7 +158,7 @@ A continuación, se definen tres funciones principales relacionadas con el parse
 ```cpp
 leerArchivoJSON(const string& filename): //Esta función recibe el nombre de un archivo JSON como entrada y devuelve un objeto json que contiene los datos del archivo. Utiliza la biblioteca de flujo de archivos ifstream para abrir y leer el archivo JSON. Luego, utiliza el operador >> para cargar los datos en un objeto json y finalmente cierra el archivo. Si ocurre algún error al abrir o leer el archivo, se muestra un mensaje de error.
 
-getCityFromJSON(const json& data): //Esta función recibe un objeto json que representa los datos de un aeropuerto y devuelve un puntero a un objeto City que contiene los datos del aeropuerto. Utiliza las funciones data["NombreDePropiedad"] para obtener los valores de las propiedades del objeto JSON y los asigna a los campos correspondientes de un nuevo objeto City.
+getCityFromJSON(const json& data): //Esta función recibe un objeto json que representa los datos de un aeropuerto y devuelve un puntero a un objeto City que contiene los datos del aeropuerto. Utiliza las funciones data["NombreDePropiedad"] para obtener los valores de las propiedades del objeto JSON y los asigna a los campos correspondientes de un nuevolo  objeto City.
 
 getCityString(const json& data): //Esta función recibe un objeto json que representa los datos de un aeropuerto y devuelve una cadena de caracteres que representa el objeto JSON. Utiliza la función data.dump() para convertir el objeto json en una cadena de caracteres.
 ```
@@ -171,3 +171,36 @@ Estas funciones son utilizadas en el programa principal en los siguientes puntos
 
 * Al crear aristas en el grafo, se calcula la distancia euclidiana entre las coordenadas de los aeropuertos utilizando la función calcularDistanciaEuclidiana, que se basa en las coordenadas almacenadas en los objetos City en ciudadHashtable.
 
+
+
+
+## Plan de Actividades
+
+A continuación se muestra el plan de actividades para el desarrollo del programa:
+
+| Actividad                                             | Descripción                                                                                                                                                                                             | Responsable         |
+|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| Leer archivo JSON                                     | Leer y cargar los datos de un archivo JSON que contiene información sobre los aeropuertos.                                                                                                             | Raul Bustamante |
+| Crear grafo                                           | Utilizar los datos cargados del archivo JSON para crear un grafo, donde los vértices representan los aeropuertos y las aristas representan las conexiones entre los aeropuertos con sus distancias. | Raul Bustamante |
+| Insertar vértice                                      | Permitir al usuario insertar un nuevo aeropuerto como vértice en el grafo.                                                                                                                               | Equipo             |
+| Eliminar vértice                                      | Permitir al usuario eliminar un aeropuerto existente del grafo.                                                                                                                                         |  Equipo            |
+| Insertar arista                                       | Permitir al usuario crear una conexión (arista) entre dos aeropuertos existentes en el grafo, especificando la distancia entre ellos.                                                                  | Equipo             |
+| Eliminar arista                                       | Permitir al usuario eliminar una conexión (arista) entre dos aeropuertos existentes en el grafo.                                                                                                       |   Equipo           |
+| Desarrollar algoritmo de Dijkstra                     | Implementar el algoritmo de Dijkstra para calcular la distancia más corta entre dos aeropuertos en el grafo.                                                                                             | Bruno Miranda |
+| Desarrollar algoritmo A*                              | Implementar el algoritmo A* para calcular la distancia más corta entre dos aeropuertos en el grafo, teniendo en cuenta una heurística estimada.                                                        | Bruno Miranda |
+| Desarrollar algoritmo BFS                             | Implementar el algoritmo de búsqueda en anchura (BFS) para calcular la distancia más corta entre dos aeropuertos en el grafo.                                                                          | Jorge Fernandez |
+| Desarrollar algoritmo DFS                             | Implementar el algoritmo de búsqueda en profundidad (DFS) para calcular la distancia más corta entre dos aeropuertos en el grafo.                                                                      | Jorge Fernandez |
+| Desarrollar algoritmo de Kruskal                      | Implementar el algoritmo de Kruskal para calcular el árbol de expansión mínima del grafo, que representa las conexiones más económicas entre todos los aeropuertos.                                      | Jorge Fernandez |
+| Calcular distancia más corta usando algoritmo Dijkstra | Utilizar el algoritmo de Dijkstra desarrollado para calcular la distancia más corta entre dos aeropuertos en el grafo.                                                                                | Equipo |
+| Calcular distancia más corta usando algoritmo A*       | Utilizar el algoritmo A* desarrollado para calcular la distancia más corta entre dos aeropuertos en el grafo, teniendo en cuenta una heurística estimada.                                              | Equipo |
+| Calcular distancia más corta usando algoritmo BFS      | Utilizar el algoritmo de BFS desarrollado para calcular la distancia más corta entre dos aeropuertos en el grafo.                                                                                     | Equipo |
+| Calcular distancia más corta usando algoritmo DFS      | Utilizar el algoritmo de DFS desarrollado para calcular la distancia más corta entre dos aeropuertos en el grafo.                                                                                     | Equipo |
+| Calcular árbol de expansión mínima usando Kruskal     | Utilizar el algoritmo de Kruskal desarrollado para calcular el árbol de expansión mínima del grafo, que representa las conexiones más económicas entre todos los aeropuertos.                          | Equipo |
+| Mostrar resumen de distancias                          | Mostrar un resumen de las cinco distancias más cortas (calculadas con diferentes algoritmos) entre dos aeropuertos, junto con los tiempos de ejecución de cada algoritmo.                              | Equipo |
+| Mostrar grafo actualizado                             | Mostrar el grafo actualizado con los aeropuertos y conexiones después de realizar las operaciones de inserción o eliminación.                                                                           | Equipo |
+
+## Nota
+
+La información proporcionada en formato JSON estaba corrupta y requirió que asignáramos las coordenadas de longitud y latitud correctas, además de eliminar manualmente los identificadores de los aeropuertos que ya no están en funcionamiento.
+
+Responsables: Raul Bustamante, Bruno Miranda, Jorge Fernandez

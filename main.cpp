@@ -224,11 +224,9 @@ void aStarAlgoritmo(Graph<string, int>& graph, unordered_map<string, City*>& ciu
     vector<string> a_path = a_star.getPath(end_vertex);
 
     cout << "Camino más corto por A*: ";
-    for (const auto& vertex : a_path) {
-      cout << vertex << " -> ";
-    }
+    
     cout << "\b\b\b   " << endl;
-
+    a_star.displayPath(a_path, ciudadHashtable);
     cout << "Tiempo de ejecución: " << duration << " segundos" << endl;
   } else {
     cout << "No se encontraron los vértices especificados." << endl;
@@ -255,9 +253,7 @@ void bfsAlgoritmo(Graph<string, int>& graph, unordered_map<string, City*>& ciuda
     vector<string> bfs_path = bfs.getPath(start_vertex, end_vertex);
 
     cout << "Camino más corto por BFS: ";
-    for (const auto& vertex : bfs_path) {
-      cout << vertex << " -> ";
-    }
+    bfs.displayPath(bfs_path, ciudadHashtable);
     cout << "\b\b\b   " << endl;
 
     cout << "Tiempo de ejecución: " << duration << " segundos" << endl;
@@ -286,9 +282,7 @@ void dfsAlgoritmo(Graph<string, int>& graph, unordered_map<string, City*>& ciuda
     vector<string> dfsPath = dfs.getPath(end_vertex);
 
     cout << "Camino más corto por DFS: ";
-    for (const auto& vertex : dfsPath) {
-      cout << vertex << " -> ";
-    }
+    dfs.displayPath(dfsPath, ciudadHashtable);
     cout << "\b\b\b   " << endl;
 
     cout << "Tiempo de ejecución: " << duration << " segundos" << endl;
@@ -317,9 +311,7 @@ void kruskalAlgoritmo(Graph<string, int>& graph, unordered_map<string, City*>& c
     vector<string> kruskalPath = kruskal.getPath(start_vertex, end_vertex);
 
     cout << "Camino más corto por Kruskal: ";
-    for (const auto& vertex : kruskalPath) {
-      cout << vertex << " -> ";
-    }
+    kruskal.displayPath(kruskalPath, ciudadHashtable);
     cout << "\b\b\b   " << endl;
 
     cout << "Tiempo de ejecución: " << duration << " segundos" << endl;

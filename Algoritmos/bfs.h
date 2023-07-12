@@ -79,7 +79,6 @@ public:
    if (path.size() == 0) {
       std::cout << "No existe un camino desde el origen hasta el destino." << std::endl;
     } else {
-      std::cout << "Camino más corto: ";
       for (const auto& vertex : path) {
         City* city = ciudadHashtable[vertex];
         std::cout << city->name << " - "<< city->city <<  " (ID: " << vertex << ") " << " -> ";
